@@ -3,12 +3,12 @@ import useAuthStore from "../../stores/use-auth-store";
 import { useNavigate } from "react-router";
 
 const Profile = () => {
-  const { userLogged, logout } = useAuthStore();
+  const { userLogged, logoutGoogle } = useAuthStore();
   const navigate = useNavigate();
 
   const handleLogout = useCallback(() => {
-    logout().then(() => navigate("/"));
-  }, [logout, navigate]);
+    logoutGoogle().then(() => navigate("/"));
+  }, [logoutGoogle, navigate]);
 
   useEffect(() => {
     if (!userLogged) return;

@@ -3,7 +3,7 @@ import useAuthStore from "../../stores/use-auth-store";
 import { useNavigate } from "react-router";
 
 const Profile = () => {
-  const { userLooged, logout } = useAuthStore();
+  const { userLogged, logout } = useAuthStore();
   const navigate = useNavigate();
 
   const handleLogout = useCallback(() => {
@@ -11,9 +11,9 @@ const Profile = () => {
   }, [logout, navigate]);
 
   useEffect(() => {
-    if (!userLooged) return;
+    if (!userLogged) return;
     const fetchData = async () => {
-      const { displayName, email } = userLooged;
+      const { displayName, email } = userLogged;
       const data = { displayName, email };
       try {
         const response = await fetch(
@@ -33,12 +33,12 @@ const Profile = () => {
       }
     };
     fetchData();
-  }, [userLooged]);
+  }, [userLogged]);
 
   return (
     <>
       <h2>Perfil de usuario</h2>
-      <p>¡Bienvenido! {userLooged?.displayName}</p>
+      <p>¡Bienvenido! {userLogged?.displayName}</p>
       <button onClick={handleLogout} title="Cerrar sesión">
         Cerrar sesión
       </button>

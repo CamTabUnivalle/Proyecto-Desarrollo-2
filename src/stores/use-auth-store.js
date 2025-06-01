@@ -8,14 +8,14 @@ const provider = new GoogleAuthProvider();
 const useAuthStore = create((set) => {
     const observeAuthState = () => {
         onAuthStateChanged (auth, (user) => {
-            user? set({userLooget: user}) : set({userLooget: null});
+            user? set({userLogged: user}) : set({userLogged: null});
         });
     };
     observeAuthState();
 
     
     return{
-        userLooget: null,
+        userLogged: null,
 
         loginGoogleWithPopUp: async () => {
             try{
@@ -27,7 +27,7 @@ const useAuthStore = create((set) => {
 
         logout: async () => {
             return await signOut(auth)
-            .then(() => set({userLooget: null}))
+            .then(() => set({userLogged: null}))
             .catch((error) => console.error ("error Logging out: ", error));
         }
     }

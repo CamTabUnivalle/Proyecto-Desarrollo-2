@@ -51,11 +51,42 @@ const Home = () => {
         )}
       </section>
 
+      {/* Sección Beneficios */}
+      <section className="home__benefits">
+        <div className="benefit-card">
+          <img className="benefit-icon" src="/image/envio-rapido.png" alt="Envío rápido" />
+          <p>Envíos a todo el país</p>
+        </div>
+        <div className="benefit-card">
+          <img className="benefit-icon" src="/image/atencion-al-cliente.png" alt="Atención al cliente" />
+          <p>Servicio al cliente 24/7</p>
+        </div>
+        <div className="benefit-card">
+          <img className="benefit-icon" src="/image/tarjeta-pago.png" alt="Pago seguro" />
+          <p>Pagos 100% seguros</p>
+        </div>
+      </section>
+
       {/* Sección Productos */}
       <section className="home__products">
         <h2>Productos Destacados</h2>
-        <div className="product-placeholder">
-          <p>Aquí irán los productos...</p>
+        <div className="products-grid">
+          {[
+            { name: "Taladro", img: "/image/taladro.png", price: 135 },
+            { name: "Cemento Argos", img: "/image/cementos-argos.png", price: 70 },
+            { name: "Panel de Yeso", img: "/image/panel-yeso.png", price: 90 },
+            { name: "Pintura Pintuco", img: "/image/pintuco.png", price: 50 },
+            { name: "Madera Estructural", img: "/image/madera-estructural.png", price: 120 },
+            { name: "Pinza", img: "/image/pinza.png", price: 45 },
+          ].map((prod, idx) => (
+            <div key={idx} className="product-card">
+              <img className="product-img" src={prod.img} alt={prod.name} />
+              <h3>{prod.name}</h3>
+              <p className="price">${prod.price}</p>
+              <button className="add-to-cart">Agregar al carrito</button>
+              <img src="/image/favorito.png" alt="Favorito" className="fav-icon" />
+            </div>
+          ))}
         </div>
       </section>
 
@@ -71,7 +102,7 @@ const Home = () => {
               { name: "Construccion", img: "/image/construccion.jpg" },
               { name: "Enchape", img: "/image/enchape.jpg" },
               { name: "Panel", img: "/image/panel.jpg" },
-              { name: "Plomeria", img: "/image/plomeria.jpg" },              
+              { name: "Plomeria", img: "/image/plomeria.jpg" },
             ].map((cat, idx) => (
               <div className="category-card" key={idx}>
                 <img src={cat.img} alt={cat.name} />

@@ -1,6 +1,7 @@
 import { useCallback } from "react";
 import useAuthStore from "../../stores/use-auth-store";
 import { useNavigate } from "react-router";
+import Banner from "./banner/Banner";
 import "./Home.css";
 
 const Home = () => {
@@ -18,11 +19,15 @@ const Home = () => {
   }, [logoutGoogle, navigate]);
 
   const scrollLeft = () => {
-    document.getElementById("carousel").scrollBy({ left: -300, behavior: "smooth" });
+    document
+      .getElementById("carousel")
+      .scrollBy({ left: -300, behavior: "smooth" });
   };
 
   const scrollRight = () => {
-    document.getElementById("carousel").scrollBy({ left: 300, behavior: "smooth" });
+    document
+      .getElementById("carousel")
+      .scrollBy({ left: 300, behavior: "smooth" });
   };
 
   return (
@@ -51,18 +56,32 @@ const Home = () => {
         )}
       </section>
 
+      <Banner />
+
       {/* Sección Beneficios */}
       <section className="home__benefits">
         <div className="benefit-card">
-          <img className="benefit-icon" src="/image/envio-rapido.png" alt="Envío rápido" />
+          <img
+            className="benefit-icon"
+            src="/image/envio-rapido.png"
+            alt="Envío rápido"
+          />
           <p>Envíos a todo el país</p>
         </div>
         <div className="benefit-card">
-          <img className="benefit-icon" src="/image/atencion-al-cliente.png" alt="Atención al cliente" />
+          <img
+            className="benefit-icon"
+            src="/image/atencion-al-cliente.png"
+            alt="Atención al cliente"
+          />
           <p>Servicio al cliente 24/7</p>
         </div>
         <div className="benefit-card">
-          <img className="benefit-icon" src="/image/tarjeta-pago.png" alt="Pago seguro" />
+          <img
+            className="benefit-icon"
+            src="/image/tarjeta-pago.png"
+            alt="Pago seguro"
+          />
           <p>Pagos 100% seguros</p>
         </div>
       </section>
@@ -73,10 +92,18 @@ const Home = () => {
         <div className="products-grid">
           {[
             { name: "Taladro", img: "/image/taladro.png", price: 135 },
-            { name: "Cemento Argos", img: "/image/cementos-argos.png", price: 70 },
+            {
+              name: "Cemento Argos",
+              img: "/image/cementos-argos.png",
+              price: 70,
+            },
             { name: "Panel de Yeso", img: "/image/panel-yeso.png", price: 90 },
             { name: "Pintura Pintuco", img: "/image/pintuco.png", price: 50 },
-            { name: "Madera Estructural", img: "/image/madera-estructural.png", price: 120 },
+            {
+              name: "Madera Estructural",
+              img: "/image/madera-estructural.png",
+              price: 120,
+            },
             { name: "Pinza", img: "/image/pinza.png", price: 45 },
           ].map((prod, idx) => (
             <div key={idx} className="product-card">
@@ -84,7 +111,11 @@ const Home = () => {
               <h3>{prod.name}</h3>
               <p className="price">${prod.price}</p>
               <button className="add-to-cart">Agregar al carrito</button>
-              <img src="/image/favorito.png" alt="Favorito" className="fav-icon" />
+              <img
+                src="/image/favorito.png"
+                alt="Favorito"
+                className="fav-icon"
+              />
             </div>
           ))}
         </div>
@@ -94,7 +125,9 @@ const Home = () => {
       <section className="home__categories">
         <h2>Categorías</h2>
         <div className="carousel-wrapper">
-          <button className="carousel-btn left" onClick={scrollLeft}>←</button>
+          <button className="carousel-btn left" onClick={scrollLeft}>
+            ←
+          </button>
           <div className="carousel" id="carousel">
             {[
               { name: "Acabados", img: "/image/acabados.jpg" },
@@ -110,7 +143,9 @@ const Home = () => {
               </div>
             ))}
           </div>
-          <button className="carousel-btn right" onClick={scrollRight}>→</button>
+          <button className="carousel-btn right" onClick={scrollRight}>
+            →
+          </button>
         </div>
       </section>
     </div>

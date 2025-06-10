@@ -1,0 +1,157 @@
+/* Banner.css */
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+
+:root {
+  /* Ajusta estos colores según tu paleta */
+  --banner-bg: #014f33;
+  --text-white: #ffffff;
+  --overlay-gradient: linear-gradient(to top, rgba(1, 79, 51, 0.85), transparent);
+}
+
+.featured-section {
+  background: var(--banner-bg);
+  color: var(--text-white);
+  font-family: "Josefin Sans", sans-serif;
+  padding: 4rem 0;
+}
+
+.container.featured-content {
+  display: flex;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.images-column {
+  display: flex;
+  flex: 1;
+  gap: 1rem;
+}
+
+.small-images {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  gap: 1rem;
+  width: 40%;
+}
+
+.img-wrapper {
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.25rem;
+}
+
+.img-small img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.img-large {
+  position: relative;
+  flex: 1;
+  border-radius: 0.25rem;
+  overflow: hidden;
+}
+.img-large img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 2rem;
+  background: var(--overlay-gradient);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.overlay-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.overlay-text {
+  font-size: 0.9rem;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.overlay-btn {
+  margin-top: 1rem;
+  align-self: flex-start;
+  background: var(--text-white);
+  color: var(--banner-bg);
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 0.75rem 1.5rem;
+  text-decoration: none;
+  border-radius: 0.25rem;
+}
+
+/* — Columna Derecha: Texto y CTA — */
+.text-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.headline {
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.subtext {
+  font-size: 1rem;
+  line-height: 1.6;
+  max-width: 420px;
+  margin: 0;
+}
+
+.primary-btn {
+  background: var(--text-white);
+  color: var(--banner-bg);
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.25rem;
+  width: fit-content;
+}
+
+/* — Resposive — */
+@media (max-width: 992px) {
+  .container.featured-content {
+    flex-direction: column;
+  }
+  .images-column {
+    width: 100%;
+  }
+  .small-images {
+    width: 100%;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: none;
+  }
+  .img-large {
+    margin-top: 1rem;
+  }
+  .text-column {
+    margin-top: 2rem;
+    align-items: center;
+    text-align: center;
+  }
+  .headline {
+    font-size: 2rem;
+  }
+}

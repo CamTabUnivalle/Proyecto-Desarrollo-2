@@ -1,6 +1,6 @@
 import { useCallback } from "react";
-import useAuthStore from "../../stores/use-auth-store";
 import { useNavigate } from "react-router";
+import useAuthStore from "../../stores/use-auth-store";
 import "./Home.css";
 
 const Home = () => {
@@ -23,6 +23,10 @@ const Home = () => {
 
   const scrollRight = () => {
     document.getElementById("carousel").scrollBy({ left: 300, behavior: "smooth" });
+  };
+
+  const handleCategoryClick = (name) => {
+    navigate(`/categoria/${name.toLowerCase()}`);
   };
 
   return (
@@ -71,9 +75,14 @@ const Home = () => {
               { name: "Construccion", img: "/image/construccion.jpg" },
               { name: "Enchape", img: "/image/enchape.jpg" },
               { name: "Panel", img: "/image/panel.jpg" },
-              { name: "Plomeria", img: "/image/plomeria.jpg" },              
+              { name: "Plomeria", img: "/image/plomeria.jpg" },
             ].map((cat, idx) => (
-              <div className="category-card" key={idx}>
+              <div
+                className="category-card"
+                key={idx}
+                onClick={() => handleCategoryClick(cat.name)}
+                style={{ cursor: "pointer" }}
+              >
                 <img src={cat.img} alt={cat.name} />
                 <span>{cat.name}</span>
               </div>

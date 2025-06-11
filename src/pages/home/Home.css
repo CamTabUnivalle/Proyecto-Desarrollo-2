@@ -1,50 +1,47 @@
-/* Estilos generales */
-body {
-  margin: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
+/* General */
 .home {
+  font-family: Arial, sans-serif;
   padding: 1rem;
-  position: relative;
+  box-sizing: border-box;
 }
 
+/* Botón Cerrar Sesión */
 .logout-btn {
   position: absolute;
   top: 1rem;
   right: 1rem;
-  background-color: #e53935;
+  background-color: #e74c3c;
   color: white;
   border: none;
   padding: 0.5rem 1rem;
   border-radius: 6px;
   cursor: pointer;
-  font-size: 0.9rem;
+  font-weight: bold;
 }
 
 /* Banner */
 .home__banner {
-  background: linear-gradient(135deg, #f6f8fc, #dbeafe);
   text-align: center;
+  background: #f8f9fa;
   padding: 2rem;
-  border-radius: 10px;
+  border-radius: 12px;
   margin-bottom: 2rem;
 }
 
 .home__banner h1 {
-  margin-bottom: 0.5rem;
   font-size: 2rem;
+  margin-bottom: 1rem;
 }
 
 .login-btn {
-  background-color: #1a73e8;
+  margin-top: 1rem;
+  background-color: #4285f4;
   color: white;
   border: none;
-  padding: 0.7rem 1.2rem;
+  padding: 0.75rem 1.5rem;
   border-radius: 6px;
-  cursor: pointer;
-  margin-top: 1rem;
   font-size: 1rem;
+  cursor: pointer;
 }
 
 /* Beneficios */
@@ -77,43 +74,17 @@ body {
 }
 
 .home__products h2 {
-  text-align: center;
-  margin-bottom: 1.5rem;
   font-size: 1.5rem;
-  color: #145c4d;
+  margin-bottom: 1rem;
 }
 
-.products-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 2rem;
-  justify-items: center;
-}
-
-.product-card {
-  background-color: #ffffff;
-  border: 1px solid #e2e8f0;
+.product-placeholder {
+  background-color: #e0e0e0;
+  padding: 2rem;
+  text-align: center;
   border-radius: 8px;
-  padding: 1rem;
-  width: 160px;
-  min-height: 260px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: relative;
-  overflow: hidden;
-  transition: transform 0.2s ease;
-}
+  color: #555;
 
-.product-card:hover {
-  transform: scale(1.03);
-}
-
-.product-img {
-  width: 80px;
-  height: 80px;
-  object-fit: contain;
-  margin: 0 auto 0.5rem auto;
 }
 
 .product-card h3 {
@@ -159,23 +130,28 @@ body {
 
 
 /* Categorías */
-.home__categories h2 {
-  text-align: center;
-  margin-bottom: 1.5rem;
+.home__categories {
+  margin-bottom: 2rem;
 }
 
+.home__categories h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+/* Carrusel de Categorías */
 .carousel-wrapper {
   position: relative;
   display: flex;
   align-items: center;
   max-width: 100%;
   overflow: hidden;
-  padding: 0 2rem;
+  padding: 0 1rem;
 }
 
 .carousel {
   display: flex;
-  gap: 2rem;
+  gap: 0,5rem;
   overflow-x: auto;
   scroll-behavior: smooth;
   scroll-snap-type: x mandatory;
@@ -187,15 +163,16 @@ body {
 }
 
 .category-card {
-  flex: 0 0 25%;
-  max-width: 25%;
+  flex: 0 0 24%;
+  max-width: 24%;
+
   scroll-snap-align: center;
   text-align: center;
 }
 
 .category-card img {
-  width: 150px;
-  height: 150px;
+  width: 200px;
+  height: 200px;
   border-radius: 50%;
   object-fit: cover;
   margin-bottom: 0.5rem;
@@ -208,10 +185,10 @@ body {
   font-size: 1rem;
 }
 
-/* Flechas del carrusel */
+/* Flechas */
 .carousel-btn {
   position: absolute;
-  background-color: white;
+  background-color: rgb(155, 149, 149);
   border: 1px solid #ccc;
   border-radius: 50%;
   width: 40px;
@@ -224,11 +201,6 @@ body {
   top: 50%;
   transform: translateY(-50%);
   z-index: 1;
-  transition: background-color 0.2s;
-}
-
-.carousel-btn:hover {
-  background-color: #f0f0f0;
 }
 
 .carousel-btn.left {
@@ -241,30 +213,26 @@ body {
 
 /* Responsive */
 @media (max-width: 768px) {
+  .category-card {
+    flex: 0 0 48%;
+    max-width: 48%;
+  }
+
+  .category-card img {
+    width: 120px;
+    height: 120px;
+  }
+
   .logout-btn {
     top: 0.5rem;
     right: 0.5rem;
     padding: 0.4rem 0.8rem;
-    font-size: 0.8rem;
-  }
-
-  .home__banner h1 {
-    font-size: 1.5rem;
+    font-size: 0.9rem;
   }
 
   .login-btn {
-    font-size: 0.9rem;
-    padding: 0.6rem 1rem;
-  }
-
-  .category-card {
-    flex: 0 0 50%;
-    max-width: 50%;
-  }
-
-  .category-card img {
-    width: 100px;
-    height: 100px;
+    padding: 0.5rem 1rem;
+    font-size: 0.95rem;
   }
 
   .product-card {

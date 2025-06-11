@@ -1,0 +1,153 @@
+/* Contenedor principal de la página de categoría */
+.categoria-page {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Título de la categoría */
+.categoria-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+/* Formulario de producto */
+.formulario-producto {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  justify-content: center;
+}
+
+.formulario-producto input {
+  padding: 0.6rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 0.95rem;
+  flex: 1 1 200px;
+  min-width: 200px;
+}
+
+.botones-form {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+/* Botón genérico pequeño */
+.btn-pequeno {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 0.4rem 0.8rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-pequeno:hover {
+  background-color: #3e8e41;
+}
+
+.btn-cancelar {
+  background-color: #999 !important;
+}
+
+.btn-cancelar:hover {
+  background-color: #777 !important;
+}
+
+.btn-eliminar {
+  background-color: #f44336;
+}
+
+.btn-eliminar:hover {
+  background-color: #d32f2f;
+}
+
+/* Grid de productos */
+.productos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Tarjeta de producto */
+.producto-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  padding: 1rem;
+  text-align: center;
+  border: 1px solid #eaeaea;
+  transition: transform 0.2s ease;
+}
+
+.producto-card:hover {
+  transform: translateY(-4px);
+}
+
+.producto-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.producto-card h3 {
+  font-size: 1.1rem;
+  color: #222;
+  margin: 0.5rem 0;
+}
+
+.producto-card p {
+  font-size: 1rem;
+  color: #666;
+}
+
+/* Contenedor de botones de acciones */
+.acciones {
+  margin-top: 0.5rem;
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+/* Mensaje cuando no hay productos */
+.sin-resultados {
+  font-size: 1.1rem;
+  color: #888;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+/* Adaptabilidad para pantallas pequeñas */
+@media (max-width: 600px) {
+  .categoria-title {
+    font-size: 1.6rem;
+  }
+
+  .formulario-producto {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .producto-card h3 {
+    font-size: 1rem;
+  }
+
+  .producto-card p {
+    font-size: 0.9rem;
+  }
+
+  .producto-card img {
+    height: 140px;
+  }
+}

@@ -42,6 +42,7 @@
   border-radius: 6px;
   font-size: 1rem;
   cursor: pointer;
+  margin-left: 32rem;
 }
 
 /* Beneficios */
@@ -140,19 +141,41 @@
   max-width: 140px;
 }
 
-.fav-icon {
+/* --- Favoritos (Corazón) --- */
+.fav-icon-wrapper {
   position: absolute;
   bottom: 1rem;
   right: 1rem;
-  width: 20px;
-  height: 20px;
-  cursor: pointer;
-  transition: transform 0.3s ease, filter 0.3s ease;
+  z-index: 2;
+  display: flex;
+  align-items: center;
 }
 
-.fav-icon:hover {
-  transform: scale(1.3);
-  filter: brightness(1.2);
+.fav-icon {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  transition: transform 0.3s, filter 0.3s;
+  z-index: 2;
+}
+
+.fav-icon--bright {
+  animation: fav-pop-rotate 0.5s cubic-bezier(.36,1.15,.43,1) 1;
+  filter: brightness(1.25) drop-shadow(0 0 6px #004F44);
+}
+
+.fav-icon--disabled {
+  opacity: 0.45;
+  filter: none !important;
+  cursor: not-allowed;
+}
+
+@keyframes fav-pop-rotate {
+  0% { transform: scale(1) rotate(0deg); }
+  20% { transform: scale(1.2) rotate(-20deg);}
+  50% { transform: scale(1.3) rotate(10deg);}
+  70% { transform: scale(1.2) rotate(-8deg);}
+  100% { transform: scale(1) rotate(0deg);}
 }
 
 

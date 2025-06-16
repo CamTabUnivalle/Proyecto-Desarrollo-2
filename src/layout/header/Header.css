@@ -9,34 +9,43 @@
 .site-header {
   font-family: "DM Sans", sans-serif;
   padding: 0.2rem 0;
+  background: #fff;
 }
 
 .header-content {
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
+  max-width: 1200px;     /* Limita el ancho y centra el header */
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 32px;       /* Aire lateral */
 }
 
 .logo {
   display: flex;
   align-items: center;
   text-decoration: none;
+  flex-shrink: 0;
 }
 
 .logo img {
-  height: 85px;
+  height: 70px;
   margin-right: 0.1rem;
 }
 
 .main-menu {
+  flex: 1;
   display: flex;
   align-items: center;
-  gap: 1rem;
+  justify-content: center;
+  gap: 2rem;
 }
 
 .menu-link {
   background: none;
   border: none;
+  box-shadow: none;
   font-size: 1rem;
   font-weight: 500;
   color: var(--primary);
@@ -50,6 +59,8 @@
 .menu-link:hover,
 .menu-link.active {
   color: var(--primary-hover);
+  background: none;
+
 }
 
 .menu-dropdown {
@@ -69,9 +80,9 @@
 .dropdown-list {
   display: none;
   position: absolute;
-  top: 100%; 
+  top: 100%;
   left: 0;
-  margin: 0; 
+  margin: 0;
   list-style: none;
   padding: 0.2rem 0;
   background: #fff;
@@ -100,15 +111,45 @@
 .icon-menu {
   display: flex;
   align-items: center;
+  flex-shrink: 0;
 }
 
 .icon-link {
-  color: var(--primary);
   font-size: 1.2rem;
   transition: color 0.2s;
+  margin-left: 12px;      /* Menos separación entre íconos */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.icon-link:hover,
-.icon-link.active {
-  color: var(--primary-hover);
+.header-icon {
+  width: 22px;           /* Ajusta según tu png */
+  height: 22px;
+  object-fit: contain;
+  transition: filter 0.2s, transform 0.2s;
+  filter: invert(18%) sepia(83%) saturate(828%) hue-rotate(128deg) brightness(95%) contrast(91%);
+}
+
+.icon-link:hover .header-icon,
+.icon-link.active .header-icon {
+  filter: invert(28%) sepia(94%) saturate(1477%) hue-rotate(337deg) brightness(94%) contrast(92%);
+  transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+  .header-content {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 0 12px;
+  }
+  .main-menu {
+    gap: 1rem;
+  }
+  .logo img {
+    height: 50px;
+  }
+  .icon-link {
+    margin-left: 8px;
+  }
 }

@@ -11,21 +11,21 @@ const Banner = () => {
         <div className="images-column">
           <div className="small-images">
             <div className="img-wrapper img-small">
-              <img src="/path/to/planta1.jpg" alt="Planta 1" />
+              <img src="/public/image/carpinteria1.jpg" alt="Planta 1" />
             </div>
             <div className="img-wrapper img-small">
-              <img src="/path/to/cactus.jpg" alt="Cactus" />
+              <img src="/public/image/construccion1.jpg" alt="Cactus" />
             </div>
           </div>
           <div className="img-wrapper img-large">
-            <img src="/path/to/tulipanes.jpg" alt="Anthurium Flower" />
+            <img src="/public/image/enchape1.png" alt="Anthurium Flower" />
             <div className="overlay">
-              <h3 className="overlay-title">Anthurium Flower</h3>
+              <h3 className="overlay-title">¡Renueva tus espacios!</h3>
               <p className="overlay-text">
-                The flower of human being. It has meaningful fact that the plant always grow whatever season and weather…
+                Encuentra materiales, acabados y asesoría profesional para darle un nuevo estilo a tu hogar o proyecto. Publica lo que necesitas o descubre lo que otros ofrecen cerca de ti.
               </p>
               <a href="#" className="btn overlay-btn">
-                Read More
+                Ver más
               </a>
             </div>
           </div>
@@ -33,9 +33,10 @@ const Banner = () => {
 
         {/* Columna de texto */}
         <div className="text-column">
-          <h2 className="headline">Lorem ipsum dolor sit amet.</h2>
+          <h2 className="headline">Explora y encuentra lo que necesitas en un solo lugar.</h2>
           <p className="subtext">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse aliquam nisi a odio commodo.
+            Descubre productos únicos, servicios especializados y oportunidades increíbles. 
+            Nuestra plataforma conecta personas y negocios para que puedas comprar, vender o contratar fácilmente, de forma segura y confiable.
           </p>
           <a href="#" className="btn primary-btn">
             Ver Más Productos

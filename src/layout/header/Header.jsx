@@ -45,11 +45,17 @@ const Header = () => {
           <NavLink to="/blog" className="menu-link">Blog</NavLink>
         </nav>
 
-        {/* ICONOS */}
+        {/* ICONOS PNG */}
         <div className="icon-menu">
-          <NavLink to="/search" className="icon-link"><i className="bi bi-search"/></NavLink>
-          <NavLink to="/cart"   className="icon-link"><i className="bi bi-cart"/></NavLink>
-          <NavLink to="/profile"className="icon-link"><i className="bi bi-person"/></NavLink>
+          <NavLink to="/search" className="icon-link">
+            <img src="/public/image/buscar.png" alt="Buscar" className="header-icon" />
+          </NavLink>
+          <NavLink to="/cart" className="icon-link">
+            <img src="/public/image/carrito-compra.png" alt="Carrito" className="header-icon" />
+          </NavLink>
+          <NavLink to="/profile" className="icon-link">
+            <img src="/public/image/usuario.png" alt="Usuario" className="header-icon" />
+          </NavLink>
         </div>
 
       </div>

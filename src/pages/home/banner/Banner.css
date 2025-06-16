@@ -1,11 +1,9 @@
-/* Banner.css */
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@0,100..700;1,100..700&display=swap');
 
 :root {
-  /* Ajusta estos colores según tu paleta */
   --banner-bg: #014f33;
   --text-white: #ffffff;
-  --overlay-gradient: linear-gradient(to top, rgba(1, 79, 51, 0.85), transparent);
+  --overlay-gradient: linear-gradient(to top, rgba(1, 79, 51, 0.68), transparent 80%);
 }
 
 .featured-section {
@@ -20,6 +18,8 @@
   gap: 2rem;
   max-width: 1200px;
   margin: 0 auto;
+  min-height: 600px;
+  align-items: center;
 }
 
 .images-column {
@@ -38,7 +38,7 @@
 .img-wrapper {
   position: relative;
   overflow: hidden;
-  border-radius: 0.25rem;
+  border-radius: 0.75rem;
 }
 
 .img-small img {
@@ -50,7 +50,7 @@
 .img-large {
   position: relative;
   flex: 1;
-  border-radius: 0.25rem;
+  border-radius: 0.75rem;
   overflow: hidden;
 }
 .img-large img {
@@ -72,71 +72,104 @@
 }
 
 .overlay-title {
+  color: #ffffff;
+  text-shadow: 0 2px 8px rgba(1,79,51,0.2), 0 1px 4px rgba(0,0,0,0.17);
   font-size: 1.5rem;
   font-weight: 700;
   margin: 0;
+  line-height: 1.1;
 }
 
 .overlay-text {
-  font-size: 0.9rem;
+  font-size: 0.97rem;
   line-height: 1.4;
   margin: 0;
+  color: #fff;
 }
 
 .overlay-btn {
   margin-top: 1rem;
-  align-self: flex-start;
+  align-self: stretch;
   background: var(--text-white);
   color: var(--banner-bg);
   text-transform: uppercase;
-  font-size: 0.875rem;
-  font-weight: 500;
-  padding: 0.75rem 1.5rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 0.75rem 0;
+  letter-spacing: 0.09em;
+  text-align: center;
   text-decoration: none;
   border-radius: 0.25rem;
+  border: none;
+  box-shadow: 0 1px 8px 0 rgba(1, 79, 51, 0.05);
+  transition: background 0.2s, color 0.2s;
+}
+.overlay-btn:hover {
+  background: #e5f6f1;
+  color: var(--banner-bg);
 }
 
 /* — Columna Derecha: Texto y CTA — */
 .text-column {
-  flex: 1;
+  flex: 1.2; /* Ocupe más espacio como en el Figma */
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 1.5rem;
+  gap: 2rem;
+  max-width: 580px;  /* MÁS ANCHO */
+  align-items: center; /* Alineado a la izquierda */
 }
 
 .headline {
-  font-size: 2.5rem;
+  color: #25705A;
+  font-size: 2.7rem;
   font-weight: 700;
-  line-height: 1.2;
+  line-height: 1.07;
   margin: 0;
+  letter-spacing: 0.01em;
+  max-width: 510px;
+  word-break: break-word;
 }
 
 .subtext {
-  font-size: 1rem;
-  line-height: 1.6;
-  max-width: 420px;
+  font-size: 1.08rem;
+  line-height: 1.7;
+  max-width: 490px;
   margin: 0;
+  color: #fff;
+  opacity: 0.85;
 }
 
 .primary-btn {
+  margin-top: 0.7rem;
   background: var(--text-white);
   color: var(--banner-bg);
   text-decoration: none;
   font-size: 1rem;
-  font-weight: 500;
-  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  padding: 0.75rem 2rem;
   border-radius: 0.25rem;
+  letter-spacing: 0.09em;
+  border: none;
+  box-shadow: 0 1px 8px 0 rgba(1, 79, 51, 0.05);
+  transition: background 0.2s, color 0.2s;
+  text-align: center;
   width: fit-content;
 }
+.primary-btn:hover {
+  background: #e5f6f1;
+  color: var(--banner-bg);
+}
 
-/* — Resposive — */
+/* — Responsive — */
 @media (max-width: 992px) {
   .container.featured-content {
     flex-direction: column;
+    min-height: unset;
   }
   .images-column {
     width: 100%;
+    justify-content: center;
   }
   .small-images {
     width: 100%;
@@ -147,11 +180,11 @@
     margin-top: 1rem;
   }
   .text-column {
-    margin-top: 2rem;
+    max-width: 100%;
     align-items: center;
     text-align: center;
   }
-  .headline {
-    font-size: 2rem;
+  .headline, .subtext {
+    max-width: 100%;
   }
 }

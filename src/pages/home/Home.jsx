@@ -1,4 +1,4 @@
-import { useCallback, useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
 import Banner from "./banner/Banner.jsx";
 import useAuthStore from "../../stores/use-auth-store";
@@ -53,7 +53,7 @@ function ProductoCard({ prod, isFav, onToggleFav, userLogged }) {
 }
 
 const Home = () => {
-  const { userLogged, loginGoogleWithPopUp, logoutGoogle } = useAuthStore();
+  const { userLogged } = useAuthStore();
   const navigate = useNavigate();
 
   // --- Favoritos en el Home (clave: nombre del producto) ---

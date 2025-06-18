@@ -1,8 +1,11 @@
 // Banner.jsx
 import React from "react";
+import { useNavigate } from "react-router"; // Importa useNavigate
 import "./Banner.css";
 
 const Banner = () => {
+  const navigate = useNavigate(); // Hook de navegación
+
   return (
     <section className="featured-section">
       <div className="container featured-content">
@@ -38,11 +41,13 @@ const Banner = () => {
             Descubre productos únicos, servicios especializados y oportunidades increíbles. 
             Nuestra plataforma conecta personas y negocios para que puedas comprar, vender o contratar fácilmente, de forma segura y confiable.
           </p>
-          <a href="#" className="btn primary-btn">
+          <button
+            className="btn primary-btn"
+            onClick={() => navigate("/productos")}
+          >
             Ver Más Productos
-          </a>
+          </button>
         </div>
-
       </div>
     </section>
   );

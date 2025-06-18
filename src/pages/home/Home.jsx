@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
 import Banner from "./banner/Banner.jsx";
 import useAuthStore from "../../stores/use-auth-store";
+import useFavStore from "../../stores/use-fav-store"; // <<<<<<<<<<<<
 import "./Home.css";
 
 const productos = [
@@ -13,11 +14,9 @@ const productos = [
   { name: "Pinza", img: "/image/pinza.png", price: 45 },
 ];
 
-// Tarjeta de producto, recibe props de favorito y evento para cambiarlo
 function ProductoCard({ prod, isFav, onToggleFav, userLogged }) {
   const [animate, setAnimate] = useState(false);
 
-  // Detecta cambio de favorito (tanto activar como desactivar) para animar
   useEffect(() => {
     if (typeof isFav === "boolean") {
       setAnimate(true);
@@ -26,7 +25,6 @@ function ProductoCard({ prod, isFav, onToggleFav, userLogged }) {
     }
   }, [isFav]);
 
-  // Si no hay sesión, ícono aparece opaco y sin click
   const disabled = !userLogged;
 
   return (
@@ -56,19 +54,15 @@ const Home = () => {
   const { userLogged } = useAuthStore();
   const navigate = useNavigate();
 
-  // --- Favoritos en el Home (clave: nombre del producto) ---
-  const [favoritos, setFavoritos] = useState({});
+  // --- FAVORITOS GLOBALES ---
+  const { favoritos, setFavorito, limpiarFavoritos } = useFavStore();
 
-  // Cuando cierre sesión, limpia favoritos
   useEffect(() => {
-    if (!userLogged) setFavoritos({});
-  }, [userLogged]);
+    if (!userLogged) limpiarFavoritos();
+  }, [userLogged, limpiarFavoritos]);
 
   const handleToggleFav = (prodName) => {
-    setFavoritos((prev) => ({
-      ...prev,
-      [prodName]: !prev[prodName],
-    }));
+    setFavorito(prodName, !favoritos[prodName]);
   };
 
   // Carousel funciones (no cambian)
@@ -89,7 +83,6 @@ const Home = () => {
 
   return (
     <div className="home">
-      {/* Banner */}
       <Banner />
 
       {/* Beneficios */}
